@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Intellectual Properties — Selling Your Home Is Our Passion</title>
+  <meta name="description" content="Intellectual Properties — Real estate listings, agent portal, lead & mandate submission, CRM integration." />
+
+  <!-- Basic styling (red / grey / white theme) -->
+  <style>
+    :root{
+      --red:#c8102e;
+      --dark:#2b2b2b;
+      --muted:#f3f3f3;
+      --white:#ffffff;
+      --max-width:1100px;
+      --radius:12px;
+      --shadow: 0 6px 18px rgba(0,0,0,0.08);
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--muted);color:var(--dark);line-height:1.45}
+    header{background:linear-gradient(90deg,var(--white),#fff);border-bottom:4px solid #eee}
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:28px}
+    nav{display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:54px;height:54px;border-radius:10px;background:linear-gradient(135deg,var(--red),#ff5a6b);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .brand h1{font-size:18px;margin:0}
+    .brand p{font-size:12px;margin:0;color:#666}
+    .navlinks{display:flex;gap:14px;align-items:center}
+    .navlinks a{color:var(--dark);text-decoration:none;padding:10px 12px;border-radius:8px}
+    .navlinks a:hover{background:#fafafa}
+    .cta{background:var(--red);color:white;padding:10px 14px;border-radius:10px;text-decoration:none}
+
+    main{padding:34px 0}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+    .hero h2{margin-top:0;color:var(--dark);font-size:28px}
+    .search{display:flex;gap:8px;margin-top:18px}
+    .search input{flex:1;padding:12px;border-radius:10px;border:1px solid #e6e6e6}
+    .search button{background:var(--red);color:white;padding:12px 16px;border-radius:10px;border:none}
+
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:22px}
+    .card{background:var(--white);border-radius:12px;padding:12px;box-shadow:var(--shadow)}
+    .listing-img{width:100%;height:160px;border-radius:8px;background:#ddd;object-fit:cover}
+    .meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin:18px 0}
+    footer{padding:22px 0;background:#fff;border-top:1px solid #eee}
+
+    /* Agent portal and forms area */
+    .portal{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .embed-card{background:#fff;border-radius:12px;padding:12px;box-shadow:var(--shadow);min-height:220px}
+    .hint{font-size:13px;color:#666}
+
+    /* responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr}
+      .portal{grid-template-columns:1fr}
+    }
+
+    /* small utilities */
+    .muted{color:#606060;font-size:13px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none}
+    .ghost{border:1px solid #ddd;background:transparent}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand">
+          <div class="logo">IP</div>
+          <div>
+            <h1>Intellectual Properties</h1>
+            <p>"Selling Your Home Is Our Passion"</p>
+          </div>
+        </div>
+        <div class="navlinks">
+          <a href="#home">Home</a>
+          <a href="#listings">Listings</a>
+          <a href="#submit-lead">Submit Lead</a>
+          <a href="#submit-mandate">Submit Mandate</a>
+          <a href="#sales">Sales Tracker</a>
+          <a class="cta" href="#agents">Agent Login</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="home">
+    <section class="hero">
+      <div class="hero-card">
+        <h2>Find your next property or list with confidence</h2>
+        <p class="muted">Browse our featured properties or ask an agent to find a match for you. Agents — submit leads & mandates from the portal on the right.</p>
+
+        <div class="search">
+          <input type="search" id="q" placeholder="Search by suburb, city, or property type" />
+          <button onclick="dummySearch()">Search</button>
+        </div>
+
+        <div class="section-title">
+          <h3>Featured properties</h3>
+          <a href="#listings" class="muted">See all</a>
+        </div>
+
+        <div class="grid-3" id="featured">
+          <!-- Listing cards will be injected here by JS (see instructions in comments) -->
+        </div>
+
+      </div>
+
+      <aside>
+        <div class="embed-card">
+          <h4 style="margin:0">Agent Portal (quick actions)</h4>
+          <p class="hint">Agents — use the buttons below to open forms for Leads, Mandates and Sales. These forms should be created in Google Forms and embedded here (replace the iframe srcs in the HTML file with your form URLs).</p>
+
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+            <a class="btn" href="#submit-lead">Submit Buyer/Seller Lead</a>
+            <a class="btn ghost" href="#submit-mandate">Submit Mandate</a>
+            <a class="btn ghost" href="#sales">Submit Sale / Offer</a>
+          </div>
+
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="embed-card">
+          <h4 style="margin:0">Quick CRM Snapshot</h4>
+          <p class="hint">Connect a Google Sheet (your CRM). For now this area can show a summary image or a screenshot — later we can integrate the Sheet as an exported JSON for live updates.</p>
+          <div style="margin-top:12px">
+            <p class="muted">Leads: <strong id="leads-count">—</strong><br/>Mandates: <strong id="mandates-count">—</strong><br/>Active Sales: <strong id="active-sales">—</strong></p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- LISTINGS -->
+    <section id="listings" style="margin-top:28px">
+      <div class="section-title"><h3>All Listings</h3><div class="muted">Manage listings from your CRM</div></div>
+
+      <div class="grid-3" id="listings-grid">
+        <!-- JS will populate listing cards from local JSON or a hosted JSON file in your repo -->
+      </div>
+    </section>
+
+    <!-- Submit Lead (embedding Google Form placeholder) -->
+    <section id="submit-lead" style="margin-top:28px">
+      <div class="section-title"><h3>Submit Lead</h3><div class="muted">Agents submit buyer and seller leads here — form data goes to a Google Sheet CRM</div></div>
+
+      <div style="display:grid;grid-template-columns:1fr 440px;gap:18px">
+        <div class="hero-card">
+          <h4>Submit Lead (Agent)</h4>
+          <p class="muted">Replace the iframe below with your Google Form "Lead Submission" link (Share → Embed). When a lead is submitted the responses will populate your Google Sheet CRM automatically.</p>
+
+          <!-- TODO: Replace src with your Google Form embed URL -->
+          <iframe src="https://docs.google.com/forms/d/e/YOUR_LEAD_FORM_ID/viewform?embedded=true" width="100%" height="720" frameborder="0">Loading…</iframe>
+        </div>
+
+        <div class="embed-card">
+          <h4>How to create the Google Form</h4>
+          <ol style="padding-left:18px;">
+            <li>Create a Google Form (forms.google.com) titled "Lead Submission"</li>
+            <li>Add fields: Agent name, Agent email, Lead name, Phone, Email, Property type, Budget, Suburb, Notes</li>
+            <li>Connect responses to a Google Sheet (Responses → Link to Sheets)</li>
+            <li>Copy the Embed URL (⋮ → Embed) and replace the iframe src in this file</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Submit Mandate -->
+    <section id="submit-mandate" style="margin-top:28px">
+      <div class="section-title"><h3>Submit Mandate</h3><div class="muted">Capture owner mandates and upload documents</div></div>
+
+      <div style="display:grid;grid-template-columns:1fr 440px;gap:18px">
+        <div class="hero-card">
+          <h4>Submit Mandate (Agent)</h4>
+          <p class="muted">Use a Google Form with a file upload enabled and connect it to your Mandates Sheet. Note: file uploads require the form owner to have Google account storage (free quota).</p>
+
+          <!-- Replace with your Mandate Google Form embed URL -->
+          <iframe src="https://docs.google.com/forms/d/e/YOUR_MANDATE_FORM_ID/viewform?embedded=true" width="100%" height="720" frameborder="0">Loading…</iframe>
+        </div>
+
+        <div class="embed-card">
+          <h4>Mandate file storage</h4>
+          <p class="muted">Uploaded files are stored in the Google Drive of the form owner. Create a folder named <code>IP-Mandates</code> and instruct agents to attach files there via the form.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SALES TRACKER -->
+    <section id="sales" style="margin-top:28px;margin-bottom:28px">
+      <div class="section-title"><h3>Sales Tracker</h3><div class="muted">Record offers, accepted deals and commission splits</div></div>
+
+      <div class="hero-card">
+        <h4>Record Sale / Offer</h4>
+        <p class="muted">Embed a Google Form for sales or update your Sales sheet directly. Use this area for quick reporting and to upload sale documents.</p>
+
+        <!-- Replace with your Sales Form embed URL -->
+        <iframe src="https://docs.google.com/forms/d/e/YOUR_SALES_FORM_ID/viewform?embedded=true" width="100%" height="360" frameborder="0">Loading…</iframe>
+
+        <div style="margin-top:14px">
+          <p class="muted">Commission calculator: <strong id="commission-result">—</strong></p>
+          <label class="muted">Sale price: <input id="sale-price" type="number" oninput="calcCommission()" /></label>
+          <label class="muted" style="margin-left:12px">Commission %: <input id="sale-comm" type="number" value="5" oninput="calcCommission()" /></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENTS LOGIN / DASHBOARD (simple stub) -->
+    <section id="agents" style="margin-top:28px">
+      <div class="section-title"><h3>Agent Access</h3><div class="muted">Simple access for agents. For full secure login, enable Google Sign-In or protect pages via GitHub Pages + Netlify Identity / Firebase Auth later.</div></div>
+
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px">
+        <div class="hero-card">
+          <h4>Agent Quick Login (Demo)</h4>
+          <p class="muted">This demo doesn't provide real security. It simply shows how agents can be routed to a private area. For production use, configure Google OAuth or Netlify Identity and restrict who can edit forms & sheets.</p>
+
+          <label class="muted">Agent email: <input id="agent-email" type="email" /></label>
+          <button class="btn" onclick="agentLogin()">Continue</button>
+
+          <div id="agent-welcome" style="margin-top:12px"></div>
+        </div>
+
+        <div class="embed-card">
+          <h4>Agent Resources</h4>
+          <ul style="padding-left:18px;margin:8px 0" class="muted">
+            <li>Listing template (download)</li>
+            <li>Mandate contract (download)</li>
+            <li>Viewings checklist</li>
+            <li>Commission structure</li>
+          </ul>
+          <p class="hint">Store these documents in a shared Google Drive folder and link them here.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <div>
+            <strong>Intellectual Properties</strong><br>
+            <span class="muted">Office: Pretoria, South Africa • Phone: +27 10 000 0000</span>
+          </div>
+          <div class="muted">© <span id="year"></span> Intellectual Properties. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Small demo data and helper functions. Replace with your own JSON hosted in the repo or connect to a Sheet-to-JSON service.
+    const demoListings = [
+      {id:1,title:'4-Bed Family Home — Arcadia',price:'R 1,350,000',img:'',beds:4,baths:2,suburb:'Arcadia'},
+      {id:2,title:'Modern 2-Bed Apartment — Hatfield',price:'R 950,000',img:'',beds:2,baths:1,suburb:'Hatfield'},
+      {id:3,title:'Prime Development Land — Waterkloof',price:'R 6,500,000',img:'',beds:'-',baths:'-',suburb:'Waterkloof'}
+    ];
+
+    function renderListings(list){
+      const container = document.getElementById('listings-grid');
+      const featured = document.getElementById('featured');
+      container.innerHTML = '';
+      featured.innerHTML = '';
+      list.forEach(l=>{
+        const card = document.createElement('div');card.className='card';
+        card.innerHTML = `\n          <div style=\"height:160px;border-radius:8px;background:#e9e9e9;display:flex;align-items:center;justify-content:center;font-weight:600;color:#888\">${l.suburb}</div>\n          <h4 style=\"margin:8px 0 0 0\">${l.title}</h4>\n          <div class=\"meta\"><div class=\"muted\">${l.beds} bd • ${l.baths} ba</div><div><strong>${l.price}</strong></div></div>\n        `;
+        container.appendChild(card);
+
+        // Add to featured (first two)
+        if(l.id<=2){
+          const f = card.cloneNode(true);
+          featured.appendChild(f);
+        }
+      })
+    }
+
+    // Dummy search
+    function dummySearch(){
+      alert('Search is a placeholder — hook this to a listings JSON or Sheet-to-JSON endpoint.');
+    }
+
+    // Agent demo login (non-secure)
+    function agentLogin(){
+      const email = document.getElementById('agent-email').value.trim();
+      if(!email || !email.includes('@')){alert('Enter a valid email');return}
+      document.getElementById('agent-welcome').innerHTML = `<p class=\"muted\">Welcome, <strong>${email}</strong>. Links to submit forms and view your listings have been sent to your email (demo).</p>`;
+    }
+
+    // Commission calc
+    function calcCommission(){
+      const price = Number(document.getElementById('sale-price').value || 0);
+      const pct = Number(document.getElementById('sale-comm').value || 0);
+      const result = (price * pct/100).toLocaleString(undefined,{maximumFractionDigits:0});
+      document.getElementById('commission-result').textContent = result ? `R ${result}` : '—';
+    }
+
+    // Populate demo counts (replace by reading your CRM Sheet counters)
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('leads-count').textContent = '12';
+    document.getElementById('mandates-count').textContent = '8';
+    document.getElementById('active-sales').textContent = '3';
+
+    // Render demo listings
+    renderListings(demoListings);
+
+    /* DEPLOYMENT NOTES (replace these comments with real URLs once ready):
+      1) Replace the Google Form iframe src attributes with the embed URLs for your forms.
+      2) Create Google Forms for Lead, Mandate, Sales and link responses to separate Google Sheets.
+      3) Optionally publish a listings.json file in the repository root and modify this script to fetch('/intellectual-properties-website/listings.json')
+      4) To secure agent pages, integrate Google Sign-In, Firebase Auth, or Netlify Identity.
+      5) Commit this file as index.html in your GitHub repo and enable GitHub Pages (Settings → Pages → Deploy from branch: main).
+    */
+  </script>
+</body>
+</html>
